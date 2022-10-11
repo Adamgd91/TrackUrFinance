@@ -1,13 +1,12 @@
-// import ExpenseItem from "./components/ExpenseItem";
 // import {  } from "module";
 
-import "./App.css";
+import ExpenseItem from "./components/ExpenseItem";
 
 function App() {
   return (
     <div className="App">
       <h1>Track urFi</h1>
-      <ExpenseItem />
+      <ExpenseItem names="Adam" />
     </div>
   );
 }
