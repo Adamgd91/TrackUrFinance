@@ -1,26 +1,23 @@
+import { getByTitle } from "@testing-library/react";
 import React from "react";
 import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
-  let expenseDate = new Date();
-
-  const today = new Date();
-  const dd = String(today.getDate()).padStart(2, "0");
-  const mm = String(today.getMonth() + 1).padStart(2, "0");
-  const yyyy = today.getFullYear();
-  let todays = mm + "/" + dd + "/" + yyyy;
-
-  const expenseTitle = "Car Insurance";
-  const expenseAmount = 300.0;
+  const month = props.date.toLocaleString("en-us", { month: "long" });
+  const year = props.date.getFullYear();
+  const day = props.date.toLocaleString("en-us", { day: "2-digit" });
 
   return (
     <div className="expense-item">
-      <div>{todays}</div>
-      <div className="expense-item__description">
-        <h2>{expenseTitle}</h2>
-        <div className="expense-item__price">{expenseAmount}</div>
+      <div>
+        <div>{month}</div>
+        <div>{year}</div>
+        <div>{day}</div>
       </div>
-      <div>ExpenseItem {props.names}</div>
+      <div className="expense-item__description">
+        <h2>{props.title}</h2>
+        <div className="expense-item__price">{props.amount}</div>
+      </div>
     </div>
   );
 };
